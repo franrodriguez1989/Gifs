@@ -1,20 +1,18 @@
 import './App.css';
 import ListOfGifs from './components/ListOfGifs';
 /* import {useState} from 'react'; */
-import { Route, Link } from "wouter";
+import { Route } from "wouter";
+import Home from './pages/Home';
+import Detail from './pages/Detail';
 export default function App() {
   /* const [keyword, setkeyword] = useState('') */
   return (
     <div className="App">
       <section className="App-content">
-      {<h1>Buscador de Gifs</h1>}
-      <Link to='http://localhost:3000'>Ir al principio</Link>
-      <Link to='/gif/Vinicius'>Vinicius</Link>
-      <Link to='/gif/Bellingham'>Bellingham</Link> 
-      <Link to='/gif/Mbappe'>Mbappe</Link>
       
-        <Route component={ListOfGifs} path='/gif/:keyword'/>
-      {/* <ListOfGifs keyword={keyword} /> */}
+        <Route component={Home} path='/'/>
+        <Route component={ListOfGifs} path='/search/:keyword'/>
+       <Route component={Detail} path='/gif/:id'/>
       </section>
     </div>
   )
