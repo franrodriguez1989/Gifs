@@ -1,0 +1,14 @@
+
+.Gif.gifdetail {
+    border: 2px solid white; /* Añade un borde blanco */
+    border-radius: 20px; /* Ajusta el radio de las esquinas para que estén muy redondeadas */
+    overflow: hidden; /* Asegura que la imagen no sobresalga del contenedor */
+    width: auto; /* Ajusta el ancho del contenedor según tus preferencias */
+    height: 250px; /* Ajusta la altura del contenedor según tus preferencias */
+    aspect-ratio: 1 / 1; /* Hace que el contenedor tenga una relación de aspecto cuadrada */
+}
+.Gif.gifdetail img {
+    width: 100%; /* Ajusta la anchura de la imagen para que ocupe todo el contenedor */
+    height: 100%; /* Ajusta la altura de la imagen para que ocupe todo el contenedor */
+    object-fit: center; /* Hace que la imagen ocupe todo el espacio disponible sin distorsionarla */
+}
