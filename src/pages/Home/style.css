@@ -1,0 +1,30 @@
+.ultimaBusqueda{
+    min-height: 100vh;
+}
+
+  
+.search-container {
+    margin-top: 20px;
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden; /* Para que los bordes redondeados se apliquen correctamente */
+  }
+  
+  .search-input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 20px 0 0 20px; /* Bordes redondeados solo en el lado izquierdo */
+    font-size: 16px;
+    text-align: center; 
+  }
+  
+  .search-button {
+    padding: 10px 20px; /* Ajusta el padding del botón según sea necesario */
+    background-color: #007bff; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border: none;
+    border-radius: 0 20px 20px 0; /* Bordes redondeados solo en el lado derecho */
+    cursor: pointer;
+  }

@@ -1,0 +1,28 @@
+.buttonBotonera {
+    margin: 20px;    
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+.buttonBotonera:hover {
+    background-color: #6fa3ff;
+  }
+  
+.buttonBotonera:active {
+    background-color: #3a6eb9;
+  }
+.invisible {
+    display: none;
+  }
+div .botonera{
+ display: flex;
+ align-items: center;
+}

@@ -13,9 +13,15 @@ export default function App() {
       <div className="App">
         <section className="App-content">
           {/* Se puede sustituir 'http://localhost:3000' por '/'   */}
-          <Link to="/">
-            <img src={require("./img/logo.png")} alt="Logo" />
-          </Link>
+          <div>
+            <Link to="/">
+              <img
+                className="logo"
+                src={require("./img/logo.png")}
+                alt="Logo"
+              />
+            </Link>
+          </div>
           <GifsContextProvider>
             <Route component={Home} path="/" />
             <Route component={SearchResult} path="/search/:keyword" />

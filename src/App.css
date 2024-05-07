@@ -12,10 +12,7 @@
   padding: 16px;
   color: white;
 }
-button{
-  font-size: 18px;
-  margin-left: 10px;
-}
+
 img{
   height: 120px;
   width: auto;
@@ -28,4 +25,7 @@ button{
 a{
   color: white;
   text-decoration: none;
+}
+.logo{
+  margin: 20px;
 }
