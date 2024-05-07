@@ -1,26 +1,35 @@
-import React, { useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import ListOfGifs from "../../components/ListOfGifs/ListOfGifs";
 import Spinner from "../../components/Spinner/Index";
 import useGifs from "../../hooks/useGifs";
 import "./style.css";
+import useNearScreen from "../../hooks/useNearScreen";
+import debounce from "just-debounce-it";
 
 export default function SearchResult({ params: { keyword } }) {
   //Esta forma de desestructurar el objeto params, es la alternativa a {params} y despues const {keyword}= params
-  const { loading, gifs, pages, setPages } = useGifs({ keyword });
-  const buttonPreviusRef = useRef();
+  const { loading, gifs, setPages } = useGifs({ keyword });
+  const externalRef = useRef();
+  const { isNearScreen } = useNearScreen({
+    externalRef: loading ? null : externalRef,
+    once: false,
+  });
 
-  const handleNextPage = () => {
-    setPages((prevpage) => prevpage + 1);
-    buttonPreviusRef.current.classList.remove("invisible");
-  };
-  const handlePreviusPage = (evt) => {
-    if (pages === 1) {
-      setPages((prevpage) => prevpage - 1);
-      evt.target.classList.add("invisible");
-    } else {
-      setPages((prevpage) => prevpage - 1);
-    }
-  };
+  //const handleNextPage = () => setPages((prevpages) => prevpages + 1);
+  // const handleNextPage = () => console.log("next pages");
+
+  const debounceHandleNextPage = useCallback(
+    debounce(() => setPages((prevpages) => prevpages + 1), 400),
+    []
+  );
+
+  useEffect(
+    function () {
+      console.log(isNearScreen);
+      if (isNearScreen) debounceHandleNextPage();
+    },
+    [debounceHandleNextPage, isNearScreen]
+  );
 
   return (
     <>
@@ -28,23 +37,13 @@ export default function SearchResult({ params: { keyword } }) {
         <Spinner />
       ) : (
         <>
-          <h3>Gifs de: {keyword}</h3>
+          <div className="header">
+            <h3>Gifs de: {keyword}</h3>
+          </div>
           <ListOfGifs gifs={gifs} />
         </>
       )}
-      <div className="botonera">
-        <button
-          className="invisible buttonBotonera"
-          ref={buttonPreviusRef}
-          onClick={handlePreviusPage}
-        >
-          Anterior pagina
-        </button>
-        {pages >= 1 ? <h5>Pag: {pages}</h5> : null}
-        <button className="buttonBotonera" onClick={handleNextPage}>
-          Siguiente pagina
-        </button>
-      </div>
+      <div id="chivato" ref={externalRef}></div>
     </>
   );
 }

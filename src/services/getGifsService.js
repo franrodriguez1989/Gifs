@@ -6,7 +6,7 @@ const raiting = ["g", "pg", "pg-13", "r"];
 
 export default function getGifs({
   keyword = "Realmadrid",
-  limit = 12,
+  limit = 10,
   pages = 0,
 }) {
   const apiUrl = `https://api.giphy.com/v1/gifs/search?api_key=

@@ -7,6 +7,7 @@ const InitialPage = 0;
 export default function useGifs({ keyword } = { keyword: null }) {
   const { gifs, setGifs } = useContext(GifsContext);
   const [loading, setLoading] = useState(false);
+  const [loadingNextPage, setLoadingNextPage] = useState(false);
   const [pages, setPages] = useState(InitialPage);
 
   /* const keywordToUse =
@@ -14,21 +15,28 @@ export default function useGifs({ keyword } = { keyword: null }) {
   const gifs = getGifs({ keyword: keywordToUse }).then((gifs) => {
     return gifs;
   }); */
+  const keywordToUse =
+    keyword || localStorage.getItem("lastkeyword") || "Realmadrid";
 
   useEffect(() => {
     setLoading(true);
-
-    const keywordToUse =
-      keyword || localStorage.getItem("lastkeyword") || "Realmadrid";
-
-    getGifs({ keyword: keywordToUse, pages }).then((gifs) => {
+    getGifs({ keyword: keywordToUse }).then((gifs) => {
       setGifs(gifs);
       setLoading(false);
       if (keyword) {
         localStorage.setItem("lastkeyword", keyword);
       }
     });
-  }, [keyword, pages, setGifs]);
+  }, [keyword, keywordToUse]);
+  useEffect(() => {
+    if (pages === InitialPage) return;
 
-  return { loading, gifs, pages, setPages };
+    setLoadingNextPage(true);
+    getGifs({ keyword: keywordToUse, pages }).then((nextGifs) => {
+      setGifs((previusGifs) => previusGifs.concat(nextGifs));
+      setLoadingNextPage(false);
+    });
+  }, [keywordToUse, pages, setGifs]);
+
+  return { loading, loadingNextPage, gifs, setPages };
 }

@@ -1,4 +1,4 @@
-import { API_KEY2 } from "./settings";
+import { API_KEY } from "./settings";
 
 const raiting = ["g", "pg", "pg-13", "r"];
 
@@ -6,7 +6,7 @@ const raiting = ["g", "pg", "pg-13", "r"];
 
 export default function getTrendingTerms() {
   const apiUrl = `https://api.giphy.com/v1/trending/searches?api_key=
-${API_KEY2}`;
+${API_KEY}`;
 
   return fetch(apiUrl)
     .then((res) => res.json())

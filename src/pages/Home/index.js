@@ -39,8 +39,10 @@ export default function Home() {
         <h1>Ultima busqueda</h1>
         {loading ? <Spinner /> : <ListOfGifs gifs={gifs} />}
       </div>
-      <h3>Gifs populares</h3>
-      <TrendingSearches />
+      <div className="tendencias">
+        <h3>Gifs populares</h3>
+        {loading ? <Spinner /> : <TrendingSearches />}
+      </div>
     </>
   );
 }

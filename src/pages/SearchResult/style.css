@@ -23,6 +23,10 @@
     display: none;
   }
 div .botonera{
- display: flex;
- align-items: center;
+  width: 100%;
+text-align: left;
+}
+.header{
+  text-align: left; 
+  width: 100%;
 }

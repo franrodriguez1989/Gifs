@@ -1,7 +1,8 @@
 .gif-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px; /* Espacio entre imágenes */  
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 10px; /* Espacio entre imágenes */  
+  width: 100%;
 }
 
 .gif-container .Gif {
