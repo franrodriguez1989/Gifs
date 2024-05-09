@@ -6,27 +6,39 @@
 }
   
 .search-container {
-    margin-top: 20px;
-    display: flex;
-    border-radius: 20px;
-    overflow: hidden; /* Para que los bordes redondeados se apliquen correctamente */
-  }
-  
-  .search-input {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    outline: none;
-    border-radius: 20px 0 0 20px; /* Bordes redondeados solo en el lado izquierdo */
-    font-size: 16px;
-    text-align: center; 
-  }
-  
-  .search-button {
-    padding: 10px 20px; /* Ajusta el padding del botón según sea necesario */
-    background-color: #007bff; /* Color de fondo del botón */
-    color: white; /* Color del texto del botón */
-    border: none;
-    border-radius: 0 20px 20px 0; /* Bordes redondeados solo en el lado derecho */
-    cursor: pointer;
+  margin-top: 20px;
+  display: flex;
+  border-radius: 20px;
+  overflow: hidden; /* Para que los bordes redondeados se apliquen correctamente */
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 20px 0 0 20px; /* Bordes redondeados solo en el lado izquierdo */
+  font-size: 16px;
+  text-align: center;
+  height: 100%; /* Mantenemos la misma altura que el botón */
+  box-sizing: border-box; /* Ajuste del modelo de caja para incluir el padding en el ancho/altura */
+  vertical-align: middle; /* Alinea verticalmente el texto */
+  line-height: normal; /* Restaura la altura de línea predeterminada */
+}
+
+.search-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+  height: 100%; /* Mantenemos la misma altura que el input */
+  box-sizing: border-box; /* Ajuste del modelo de caja para incluir el padding en el ancho/altura */
+  vertical-align: middle; /* Alinea verticalmente el texto */
+  line-height: normal; /* Restaura la altura de línea predeterminada */
+}
+  .search-button:hover{
+    background-color: #858a8f; /* Color de fondo del botón cuando pasas por el  */
+    color: black; /* Color del texto del botón */    
   }

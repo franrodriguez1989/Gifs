@@ -1,4 +1,4 @@
-import { API_KEY2 } from "./settings";
+import { API_KEY } from "./settings";
 
 const raiting = ["g", "pg", "pg-13", "r"];
 
@@ -10,7 +10,7 @@ export default function getGifs({
   pages = 0,
 }) {
   const apiUrl = `https://api.giphy.com/v1/gifs/search?api_key=
-${API_KEY2}&q=${keyword}&limit=${limit}&offset=${pages * limit}
+${API_KEY}&q=${keyword}&limit=${limit}&offset=${pages * limit}
 &rating=${raiting[0]}&lang=es&bundle=messaging_non_clips`;
 
   return fetch(apiUrl)
