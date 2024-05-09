@@ -19,13 +19,12 @@ export default function SearchResult({ params: { keyword } }) {
   // const handleNextPage = () => console.log("next pages");
 
   const debounceHandleNextPage = useCallback(
-    debounce(() => setPages((prevpages) => prevpages + 1), 400),
+    debounce(() => setPages((prevpages) => prevpages + 1), 200),
     []
   );
 
   useEffect(
     function () {
-      console.log(isNearScreen);
       if (isNearScreen) debounceHandleNextPage();
     },
     [debounceHandleNextPage, isNearScreen]

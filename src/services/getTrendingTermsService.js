@@ -1,7 +1,5 @@
 import { API_KEY } from "./settings";
 
-const raiting = ["g", "pg", "pg-13", "r"];
-
 //cambiar apikey si caduca o sobrepasas los request
 
 export default function getTrendingTerms() {
