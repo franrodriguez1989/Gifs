@@ -24,7 +24,7 @@ export default function Home() {
     <>
       <SearchForm onSubmit={handleSubmit} />
       <div className="ultimaBusqueda">
-        <h1>busqueda</h1>
+        <h1>Ultima busqueda</h1>
         {loading ? <Spinner /> : <ListOfGifs gifs={gifs} />}
       </div>
       <div className="tendencias">
