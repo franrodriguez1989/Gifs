@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Detail from "./pages/Detail";
 import SearchResult from "./pages/SearchResult";
 import { GifsContextProvider } from "./context/GifsContext";
+import logo from "./img/logo.png";
 
 export default function App() {
   return (
@@ -13,7 +14,7 @@ export default function App() {
         {/* Se puede sustituir 'http://localhost:3000' por '/'   */}
         <div>
           <Link to="/">
-            <img className="logo" src={require("./img/logo.png")} alt="Logo" />
+            <img className="logo" src={logo} alt="Logo" />
           </Link>
         </div>
         <GifsContextProvider>
