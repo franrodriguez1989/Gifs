@@ -1,9 +1,7 @@
 import React from "react";
 import Gif from "../../components/Gif/Gif";
-import "../../components/Gif/Gif.css";
 import useGlobalGifs from "../../hooks/useGlobalGifs";
 import BackButton from "../../components/Backbutton";
-import "../Home/style.css";
 
 export default function Detail({ params: { id } }) {
   const gifs = useGlobalGifs();
