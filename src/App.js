@@ -1,11 +1,11 @@
-import "./App.css";
-import { Link } from "wouter";
-import { Route } from "wouter";
-import Home from "./pages/Home";
-import Detail from "./pages/Detail";
-import SearchResult from "./pages/SearchResult";
-import { GifsContextProvider } from "./context/GifsContext";
-import logo from "./img/logo.png";
+import "./App.css"
+import { Link } from "wouter"
+import { Route } from "wouter"
+import Home from "./pages/Home"
+import Detail from "./pages/Detail"
+import SearchResult from "./pages/SearchResult"
+import { GifsContextProvider } from "./context/GifsContext"
+import logo from "./img/logo.png"
 
 export default function App() {
   return (
@@ -21,8 +21,17 @@ export default function App() {
           <Route component={Home} path="/" />
           <Route component={SearchResult} path="/search/:keyword" />
           <Route component={Detail} path="/gif/:id" />
+          <Route
+            component={() => (
+              <h1>
+                Error 404
+                <br /> Busqueda incorrecta
+              </h1>
+            )}
+            path="/404"
+          />
         </GifsContextProvider>
       </section>
     </div>
-  );
+  )
 }

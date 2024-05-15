@@ -1,6 +1,5 @@
-import { API_KEY } from "./settings";
-
-const raiting = ["g", "pg", "pg-13", "r"];
+import { API_KEY, API_URL, RAITING } from "./settings";
+import { fromApiUrlToGifs } from "../hooks/useApiUrl";
 
 //cambiar apikey si caduca o sobrepasas los request
 
@@ -9,25 +8,9 @@ export default function getGifs({
   limit = 10,
   pages = 0,
 }) {
-  const apiUrl = `https://api.giphy.com/v1/gifs/search?api_key=
+  const apiUrl = `${API_URL}search?api_key=
 ${API_KEY}&q=${keyword}&limit=${limit}&offset=${pages * limit}
-&rating=${raiting[0]}&lang=es&bundle=messaging_non_clips`;
+&rating=${RAITING[0]}&lang=es&bundle=messaging_non_clips`;
 
-  return fetch(apiUrl)
-    .then((res) => res.json())
-    .then((response) => {
-      const { data = [] } = response;
-      //nos asegurammos que la respuesta sea un array
-      if (Array.isArray(data)) {
-        const gifsurl = data.map((image) => {
-          const { images, title, id } = image;
-          const { url } = images.original;
-
-          //console.log(gifsurl)
-          return { title, id, url };
-        });
-        return gifsurl;
-      }
-      return [];
-    });
+  return fromApiUrlToGifs(apiUrl);
 }
