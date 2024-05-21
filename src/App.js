@@ -12,14 +12,14 @@ export default function App() {
     <div className="App">
       <section className="App-content">
         {/* Se puede sustituir 'http://localhost:3000' por '/'   */}
-        <div>
+        <header>
           <Link to="/">
             <img className="logo" src={logo} alt="Logo" />
           </Link>
-        </div>
+        </header>
         <GifsContextProvider>
           <Route component={Home} path="/" />
-          <Route component={SearchResult} path="/search/:keyword" />
+          <Route component={SearchResult} path="/search/:keyword/:raiting?" />
           <Route component={Detail} path="/gif/:id" />
           <Route
             component={() => (

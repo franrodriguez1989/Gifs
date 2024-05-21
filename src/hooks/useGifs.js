@@ -4,7 +4,7 @@ import GifsContext from "../context/GifsContext"
 
 const InitialPage = 0
 //recordatorio { keyword = null } = {} tambien es aceptable. Si dejamos solo { keyword = null } y llamamos a la funcion sin argumentos el valor sera indefenido.
-export default function useGifs({ keyword } = { keyword: null }) {
+export default function useGifs({ keyword, raiting } = { keyword: null }) {
   const { gifs, setGifs } = useContext(GifsContext)
   const [loading, setLoading] = useState(false)
   const [loadingNextPage, setLoadingNextPage] = useState(false)
@@ -20,19 +20,19 @@ export default function useGifs({ keyword } = { keyword: null }) {
 
   useEffect(() => {
     setLoading(true)
-    getGifs({ keyword: keywordToUse }).then((gifs) => {
+    getGifs({ keyword: keywordToUse, raiting }).then((gifs) => {
       setGifs(gifs)
       setLoading(false)
       if (keyword) {
         localStorage.setItem("lastkeyword", keyword)
       }
     })
-  }, [keyword, keywordToUse])
+  }, [keyword, keywordToUse, raiting, setGifs])
   useEffect(() => {
     if (pages === InitialPage) return
 
     setLoadingNextPage(true)
-    getGifs({ keyword: keywordToUse, pages }).then((nextGifs) => {
+    getGifs({ keyword: keywordToUse, pages, raiting }).then((nextGifs) => {
       setGifs((previusGifs) => previusGifs.concat(nextGifs))
       setLoadingNextPage(false)
     })

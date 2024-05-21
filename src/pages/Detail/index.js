@@ -4,7 +4,6 @@ import BackButton from "../../components/Backbutton"
 import useSingleGif from "../../hooks/useSingleGif"
 import Spinner from "../../components/Spinner/Index"
 import { Redirect } from "wouter"
-import useTitle from "../../hooks/useSEO"
 import { Helmet } from "react-helmet"
 
 export default function Detail({ params: { id } }) {
