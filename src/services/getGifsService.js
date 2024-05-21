@@ -1,7 +1,4 @@
-import { API_KEY, API_URL } from "./settings"
-import { fromApiUrlToGifs } from "../hooks/useApiUrl"
-
-//cambiar apikey si caduca o sobrepasas los request
+import { API_KEY, API_URL } from "./settings.js"
 
 export default function getGifs({
   keyword = "Realmadrid",
@@ -13,5 +10,20 @@ export default function getGifs({
 ${API_KEY}&q=${keyword}&limit=${limit}&offset=${pages * limit}
 &rating=${raiting}&lang=es&bundle=messaging_non_clips`
 
-  return fromApiUrlToGifs(apiUrl)
+  const gifsUrl = fetch(apiUrl)
+    .then((res) => res.json())
+    .then((apiResponse) => {
+      const { data = [] } = apiResponse
+      //nos asegurammos que la respuesta sea un array
+      if (Array.isArray(data)) {
+        const gifsUrl = data.map((image) => {
+          const { images, title, id } = image
+          const { url } = images.original
+          return { title, id, url }
+        })
+        return gifsUrl
+      }
+    })
+
+  return gifsUrl
 }

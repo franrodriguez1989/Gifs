@@ -9,7 +9,6 @@ import { Helmet } from "react-helmet"
 export default function Detail({ params: { id } }) {
   const { gif, isLoading, isError } = useSingleGif({ id })
   const title = gif ? gif.title : ""
-  //useTitle({ description: `Detail of ${title}`, title })
 
   if (isLoading) {
     return (

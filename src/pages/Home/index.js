@@ -7,10 +7,8 @@ import SearchForm from "../../components/SearchForm"
 import { Helmet } from "react-helmet"
 
 export default function Home() {
-  //    const [path, pushLocation] = useLocation() se puede adquirir solo la parte que vamos a usar.
-
   const { loading, gifs } = useGifs()
-
+  console.log(`loading: ${loading}`)
   return (
     <>
       <Helmet>

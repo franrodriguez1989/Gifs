@@ -1,23 +1,23 @@
 .Gif {
-    border: 2px solid white; /* Añade un borde blanco */
-    border-radius: 20px; /* Ajusta el radio de las esquinas para que estén muy redondeadas */
-    overflow: hidden; /* Asegura que la imagen no sobresalga del contenedor */
-    width: auto; /* Ajusta el ancho del contenedor según tus preferencias */
-    height: 300px; /* Ajusta la altura del contenedor según tus preferencias */
-    aspect-ratio: 1 / 1; /* Hace que el contenedor tenga una relación de aspecto cuadrada */
+    border: 2px solid white; 
+    border-radius: 20px;
+    overflow: hidden; 
+    width: auto; 
+    height: 300px;
+    aspect-ratio: 1 / 1; 
 }
 
 .Gif img {
-    width: 100%; /* Ajusta la anchura de la imagen para que ocupe todo el contenedor */
-    height: 100%; /* Ajusta la altura de la imagen para que ocupe todo el contenedor */
-    object-fit: center; /* Hace que la imagen ocupe todo el espacio disponible sin distorsionarla */
+    width: 100%; 
+    height: 100%; 
+    object-fit: center;
 }
 
 .Gif.gifdetail {
    
-    width: auto; /* Ajusta el ancho del contenedor según tus preferencias */
-    height: 500px; /* Ajusta la altura del contenedor según tus preferencias */
-    aspect-ratio: 1 / 1; /* Hace que el contenedor tenga una relación de aspecto cuadrada */
+    width: auto;
+    height: 500px;
+    aspect-ratio: 1 / 1;
 }
 .gif-wrapper {
     position: relative;

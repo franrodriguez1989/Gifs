@@ -6,8 +6,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: center;  
   font-size: calc(10px + 2vmin);
   padding: 16px;
   color: white;
@@ -28,4 +27,8 @@ a{
 }
 .logo{
   margin: 20px;
+}
+.logo-container{
+  background-color: #95ddfa;
+ padding-top: 30px;
 }

@@ -26,21 +26,21 @@
     border: none;
     border-radius: 0 20px 20px 0;
     cursor: pointer;
-    height: 100%; /* Mantenemos la misma altura que el input */
-    box-sizing: border-box; /* Ajuste del modelo de caja para incluir el padding en el ancho/altura */
-    vertical-align: middle; /* Alinea verticalmente el texto */
-    line-height: normal; /* Restaura la altura de línea predeterminada */
+    height: 100%;
+    box-sizing: border-box;
+    vertical-align: middle;
+    line-height: normal; 
   }
     .search-button:hover{
-      background-color: #858a8f; /* Color de fondo del botón cuando pasas por el  */
-      color: black; /* Color del texto del botón */    
+      background-color: #858a8f;
+      color: black;
     }
     .select-container {
-      margin-left: 10px; /* Espacio entre el botón y el select */
+      margin-left: 10px;
     }
     
     .select {
-      border-radius: 20px; /* Borde redondeado */
+      border-radius: 20px;
       padding: 10px;
       font-size: 20px;
       cursor: pointer;

@@ -9,7 +9,7 @@ import { Helmet } from "react-helmet"
 import SearchForm from "../../components/SearchForm"
 
 export default function SearchResult({ params: { keyword, raiting } }) {
-  //Esta forma de desestructurar el objeto params, es la alternativa a {params} y despues const {keyword}= params
+  //destructuring alt const {keyword} = params
 
   const { loading, loadingNextPage, gifs, setPages } = useGifs({
     keyword,
@@ -33,7 +33,9 @@ export default function SearchResult({ params: { keyword, raiting } }) {
     },
     [debounceHandleNextPage, isNearScreen]
   )
-  //En Helmet se puede usar tanto <meta></meta> como <meta/>
+  //Helmet use <meta></meta> or <meta/>
+  console.log(`loading: ${loading}`)
+  console.log(`loadingNextPage: ${loadingNextPage}`)
   return (
     <>
       <Helmet>

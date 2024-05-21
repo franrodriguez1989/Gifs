@@ -28,7 +28,7 @@ const reducer = (state, action) => {
       return state
   }
 }
-//Otra forma de hacerlo sin switch
+//
 /* const ACTIONS_REDUCERS = {
     [ACTIONS.UPDATE_KEYWORD]: (state, action) => ({
     ...state, 

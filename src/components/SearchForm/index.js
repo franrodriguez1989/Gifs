@@ -1,6 +1,6 @@
 import React from "react"
 import "./style.css"
-import { RAITINGS } from "../../services/settings"
+import { RAITINGS } from "../../services/settings.js"
 import useForm from "./hook"
 
 function SearchForm({
@@ -8,8 +8,6 @@ function SearchForm({
   initialRaiting = "g",
   initialTimes = 0,
 }) {
-  //const [raiting, setRaiting] = useState(initialRaiting)
-
   const {
     keyword,
     times,

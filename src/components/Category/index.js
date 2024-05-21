@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "wouter";
+import React from "react"
+import { Link } from "wouter"
 
 export function Category({ tendencias }) {
   return (
@@ -11,5 +11,5 @@ export function Category({ tendencias }) {
         </React.Fragment>
       ))}
     </div>
-  );
+  )
 }

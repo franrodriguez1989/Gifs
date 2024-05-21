@@ -10,32 +10,30 @@ export default function useGifs({ keyword, raiting } = { keyword: null }) {
   const [loadingNextPage, setLoadingNextPage] = useState(false)
   const [pages, setPages] = useState(InitialPage)
 
-  /* const keywordToUse =
-    keyword || localStorage.getItem("lastkeyword") || "Realmadrid";
-  const gifs = getGifs({ keyword: keywordToUse }).then((gifs) => {
-    return gifs;
-  }); */
   const keywordToUse =
     keyword || localStorage.getItem("lastkeyword") || "Realmadrid"
 
   useEffect(() => {
     setLoading(true)
-    getGifs({ keyword: keywordToUse, raiting }).then((gifs) => {
-      setGifs(gifs)
-      setLoading(false)
-      if (keyword) {
-        localStorage.setItem("lastkeyword", keyword)
-      }
-    })
+    getGifs({ keyword: keywordToUse, raiting })
+      .then((gifs) => {
+        setGifs(gifs)
+
+        if (keyword) {
+          localStorage.setItem("lastkeyword", keyword)
+        }
+      })
+      .finally(() => setLoading(false))
   }, [keyword, keywordToUse, raiting, setGifs])
   useEffect(() => {
     if (pages === InitialPage) return
 
     setLoadingNextPage(true)
-    getGifs({ keyword: keywordToUse, pages, raiting }).then((nextGifs) => {
-      setGifs((previusGifs) => previusGifs.concat(nextGifs))
-      setLoadingNextPage(false)
-    })
+    getGifs({ keyword: keywordToUse, pages, raiting })
+      .then((nextGifs) => {
+        setGifs((previusGifs) => previusGifs.concat(nextGifs))
+      })
+      .finally(() => setLoadingNextPage(false))
   }, [pages])
 
   return { loading, loadingNextPage, gifs, setPages }

@@ -10,13 +10,14 @@ import logo from "./img/logo.png"
 export default function App() {
   return (
     <div className="App">
+      <header className="logo-container">
+        <Link to="/">
+          <img className="logo" src={logo} alt="Logo" />
+        </Link>
+      </header>
       <section className="App-content">
-        {/* Se puede sustituir 'http://localhost:3000' por '/'   */}
-        <header>
-          <Link to="/">
-            <img className="logo" src={logo} alt="Logo" />
-          </Link>
-        </header>
+        {/*  'http://localhost:3000' = '/'   */}
+
         <GifsContextProvider>
           <Route component={Home} path="/" />
           <Route component={SearchResult} path="/search/:keyword/:raiting?" />
