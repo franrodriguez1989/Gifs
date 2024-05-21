@@ -1,6 +1,6 @@
-import React from "react";
-import "./Gif.css";
-import { Link } from "wouter";
+import React from "react"
+import "./Gif.css"
+import { Link } from "wouter"
 
 function Gif({ title, id, url, className = "" }) {
   return (
@@ -8,6 +8,8 @@ function Gif({ title, id, url, className = "" }) {
       <h5 className="gif-title">{title}</h5>
       <img alt={title} src={url} />
     </Link>
-  );
+  )
 }
-export default React.memo(Gif);
+export default React.memo(Gif, (prevProp, nextProp) => {
+  return prevProp.id === nextProp.id
+})
